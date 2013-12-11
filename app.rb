@@ -14,7 +14,12 @@ configure do
 
   use OmniAuth::Builder do
     # TODO: We need to change/add scopes
-    provider :twenty_three_and_me, 'key', 'secret', :scope => 'basic genomes'
+
+    # The key and secret can be set as environment variables:
+    #
+    # export TWENTYTHREEANDMEKEY=...
+    # export TWENTYTHREEANDMESECRET=...
+    provider :twenty_three_and_me, ENV['TWENTYTHREEANDME_KEY'], ENV['TWENTYTHREEANDME_SECRET'], :scope => 'basic genomes'
   end
 end
 
