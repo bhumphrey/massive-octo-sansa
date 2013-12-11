@@ -19,7 +19,7 @@ configure do
     #
     # export TWENTYTHREEANDMEKEY=...
     # export TWENTYTHREEANDMESECRET=...
-    provider :twenty_three_and_me, ENV['TWENTYTHREEANDME_KEY'], ENV['TWENTYTHREEANDME_SECRET'], :scope => 'basic genomes'
+    provider :twenty_three_and_me, ENV['TWENTYTHREEANDME_KEY'], ENV['TWENTYTHREEANDME_SECRET'], :scope => 'basic genomes analyses'
   end
 end
 
@@ -38,7 +38,7 @@ before do
   redirect to('/auth/twenty_three_and_me') unless current_user
 end
 
-get '/receive_code' do
+post '/auth/twenty_three_and_me/callback' do
   # TODO: Create a user in the database, etc.
   puts "- env: #{env.inspect}"
 
@@ -46,6 +46,7 @@ get '/receive_code' do
 
   # The application's main endpoint
   #redirect to('/')
+  'Success.'
 end
 
 get '/auth/failure' do
