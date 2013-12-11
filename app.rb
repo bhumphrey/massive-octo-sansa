@@ -26,11 +26,10 @@ helpers do
 end
 
 before do
-  # Don't redirect to Twitter when the path starts with /auth/
+  # Don't redirect when the path starts with /auth/
   pass if request.path_info =~ /^\/auth\//
 
-  # OmniAuth redirects to Twitter when the path matches /auth/twitter
-  #redirect to('/auth/twitter') unless current_user
+  # OmniAuth redirects to 23andMe when the path matches /auth/twenty_three_and_me
   redirect to('/auth/twenty_three_and_me') unless current_user
 end
 
