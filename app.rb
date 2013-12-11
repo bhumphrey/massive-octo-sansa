@@ -38,7 +38,7 @@ before do
   redirect to('/auth/twenty_three_and_me') unless current_user
 end
 
-post '/auth/twenty_three_and_me/callback' do
+get '/auth/twenty_three_and_me/callback' do
   # TODO: Create a user in the database, etc.
   puts "- env: #{env.inspect}"
 
@@ -48,6 +48,20 @@ post '/auth/twenty_three_and_me/callback' do
   #redirect to('/')
   'Success.'
 end
+
+get '/auth/twenty_three_and_me' do
+  # TODO: Create a user in the database, etc.
+  puts "- env: #{env.inspect}"
+
+  #session[:uid] = env['omniauth.auth']['uid']
+
+  # The application's main endpoint
+  #redirect to('/')
+  'Success. part deux'
+end
+
+
+
 
 get '/auth/failure' do
   # OmniAuth redirects to /auth/failure when it encounters a problem
